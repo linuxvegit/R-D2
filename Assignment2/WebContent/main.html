@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/whenReady.js"></script>
+<script src="js/inputFilter.js"></script>
+<script src="js/Drag.js"></script>
+<script src="js/util.js"></script>
+<script src="js/Member.js"></script>
+<script src="js/MainInit.js"></script>
+<script>
+	$(initMain);
+</script>
+<link href="css/mainpage.css" rel="stylesheet">
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">
+<title>Main</title>
+</head>
+<body class="templatemo-bg-gray">
+
+
+	<div class="wrapper">
+		<h3>Profile</h3>
+
+		<div class="top-profile" id="profile">
+			<div class="profile-icon">
+				<div class="img-div">
+					<img src="Face.gif">
+				</div>
+				<div class="id-div">
+					<span class="profile-id" id="profileId">ID: 1</span>
+				</div>
+				<div class="update-div">
+					<span class="update-button" id="updateButton">Update</span>
+				</div>
+			</div>
+			<div class="profile-detail">
+				<table class="profile-table">
+					<tr>
+						<td class="profile-td"><span class="profile-label">Name:</span>
+							<span class="profile-content" id="profileName">Loading...</span>
+						</td>
+						<td class="profile-td"><span class="profile-label">Gender:</span>
+							<span class="profile-content" id="profileGender">Loading...</span></td>
+					</tr>
+					<tr>
+						<td class="profile-td"><span class="profile-label">Age:</span>
+							<span class="profile-content" id="profileAge">Loading...</span></td>
+						<td class="profile-td"><span class="profile-label">Contact:</span>
+							<span class="profile-content" id="profileContact">Loading...
+						</span></td>
+					</tr>
+					<tr>
+						<td class="profile-td" colspan="2"><span
+							class="profile-label">Address:</span> <span
+							class="profile-content" id="profileAddress">Loading...</span></td>
+					</tr>
+					<tr>
+						<td class="profile-td" colspan="2" rowspan="2"><span
+							class="profile-label">Addition:</span> <span
+							class="profile-content" id="profileAddition">Loading...</span></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<h3>Members</h3>
+
+		<div class="member-list" id="memberList">Loading...</div>
+	</div>
+
+	<div class="pin-right-center" id="controller">
+		<table class="pin-table">
+			<tr class="pin-row" id="addRow">
+				<td class="pin-button" onclick="addShow()">ADD</td>
+			</tr>
+			<tr class="pin-row">
+				<td class="pin-button"
+					onclick="$('#searchPanel').show('nomal').css('z-index',++window.maxZIndex)">FAVOR</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="pin-right-top">
+		<div class="logout-button" id="logoutButton">Log out</div>
+		<div class="logout-button" id="dismissButton">Dis miss</div>
+	</div>
+
+	<div class="panel-right-center hide" id="addPanel">
+		<div class="panel-titlebar" id="panelTitle"
+			onmousedown="drag(this.parentNode,event);">
+			<span id="addTitle">Add member</span>
+			<button id="addClose" class="panel-close"
+				onmousedown="$(this.parentNode.parentNode).hide('normal');">X</button>
+		</div>
+		<div class="panel-content">
+			<form class="panel-form">
+				<table class="pane-table">
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input type="text"
+							class="panel-table-input-text" id="nameInput" placeholder="Name">
+						</td>
+						<td class="panel-table-data"><select name="name"
+							class="nameCheck for-write hide">
+								<option value="writable">Writable</option>
+								<option value="unwritable">Unwritable</option>
+						</select> <select name="name" class="nameCheck for-read">
+								<option value="readable">Readable</option>
+								<option value="unreadable">Unreadable</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input type="text"
+							class="panel-table-input-text" id="genderInput"
+							placeholder="Gender"></td>
+						<td class="panel-table-data"><select name="gender"
+							class="genderCheck for-write hide">
+								<option value="writable">Writable</option>
+								<option value="unwritable">Unwritable</option>
+						</select> <select name="gender" class="genderCheck for-read">
+								<option value="readable">Readable</option>
+								<option value="unreadable">Unreadable</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><label for="birthdayInput">Birthday</label><br>
+							<input type="text" class="panel-table-input-date"
+							id="birthdayInput" placeholder="yyyy/mm/dd"
+							data-allowed-chars="0123456789/"></td>
+						<td class="panel-table-data"><select name="birthday"
+							class="birthdayCheck for-write hide">
+								<option value="writable">Writable</option>
+								<option value="unwritable">Unwritable</option>
+						</select> <select name="birthday" class="birthdayCheck for-read">
+								<option value="readable">Readable</option>
+								<option value="unreadable">Unreadable</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input type="text"
+							class="panel-table-input-text" id="contactInput"
+							placeholder="Contact"></td>
+						<td class="panel-table-data"><select name="contact"
+							class="contactCheck for-write hide">
+								<option value="writable">Writable</option>
+								<option value="unwritable">Unwritable</option>
+						</select> <select name="contact" class="contactCheck for-read">
+								<option value="readable">Readable</option>
+								<option value="unreadable">Unreadable</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input type="text"
+							class="panel-table-input-text" id="addressInput"
+							placeholder="Address"></td>
+						<td class="panel-table-data"><select name="address"
+							class="addressCheck for-write hide">
+								<option value="writable">Writable</option>
+								<option value="unwritable">Unwritable</option>
+						</select> <select name="address" class="addressCheck for-read">
+								<option value="readable">Readable</option>
+								<option value="unreadable">Unreadable</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><label>Join date</label><br>
+							<input type="text" class="panel-table-input-date"
+							id="joinDateInput" disabled placeholder="yyyy/mm/dd"
+							data-allowed-chars="0123456789/"></td>
+						<td class="panel-table-data"><select name="joindate"
+							class="joinDateCheck for-write hide">
+								<option value="unwritable">Unwritable</option>
+						</select> <select name="joindate" class="joinDateCheck for-read">
+								<option value="readable">Readable</option>
+								<option value="unreadable">Unreadable</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input type="text"
+							class="panel-table-input-text" id="additionInput"
+							placeholder="Addition"></td>
+						<td class="panel-table-data"><select name="addition"
+							class="additionCheck for-write hide">
+								<option value="writable">Writable</option>
+								<option value="unwritable">Unwritable</option>
+						</select> <select name="addition" class="additionCheck for-read">
+								<option value="readable">Readable</option>
+								<option value="unreadable">Unreadable</option>
+						</select></td>
+					</tr>
+				</table>
+				<hr>
+				<div class="panel-buttons">
+					<input type="button" id="updatePassword" class=""
+						value="Update password"> <input type="submit" id="submit"
+						class="" value="Submit"> <input type="reset" id="reset"
+						class="" value="Reset">
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="panel-right-center hide" id="passwordPanel">
+		<div class="panel-titlebar" onmousedown="drag(this.parentNode,event)">
+			Update password
+			<button class="panel-close" id="updateClose"
+				onclick="$(this.parentNode.parentNode).hide('normal');">X</button>
+		</div>
+		<div class="panel-content">
+			<form class="panel-form">
+				<table class="panel-table">
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input id="oldPassword"
+							type="password" placeholder="Old password"></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input id="newPassword"
+							type="password" placeholder="New password"></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input id="confirmPassword"
+							type="password" placeholder="Confirm password"></td>
+					</tr>
+				</table>
+				<hr>
+				<div class="panel-buttons">
+					<input type="submit" id="psSubmit" class="" value="Submit">
+					<input type="reset" id="psReset" class="" value="Reset">
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="panel-right-center hide" id="searchPanel">
+		<div class="panel-titlebar" onmousedown="drag(this.parentNode,event)">
+			Favor
+			<button class="panel-close" id="searchClose"
+				onclick="$(this.parentNode.parentNode).hide('normal');">X</button>
+		</div>
+
+		<div class="panel-content">
+			<form class="panel-form">
+				<table class="panel-table">
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><select name="searchInfo"
+							id="searchInfo">
+								<option value="Id">ID</option>
+								<option value="Name">Name</option>
+								<option value="Gender">Gender</option>
+								<option value="Age">Age</option>
+								<option value="Contact">Contact</option>
+								<option value="Address">Address</option>
+								<option value="JoinDate">Join date</option>
+								<option value="JoinDays">Join days</option>
+								<option value="Addition">Addition</option>
+						</select></td>
+						<td class="panel-table-data"><input type="submit"
+							id="sSubmit" value="Search"></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><input type="text" id="sFrom"
+							placeholder="From"></td>
+						<td class="panel-table-data"><input type="text" id="sTo"
+							placeholder="To"></td>
+					</tr>
+
+				</table>
+			</form>
+			<hr>
+			<form class="panel-form">
+				<table class="panel-table">
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><select name="sortInfo1"
+							class="sort-selector" id="sortInfo1" order="order1">
+								<option value="Id">ID</option>
+								<option value="Name">Name</option>
+								<option value="Gender">Gender</option>
+								<option value="Age">Age</option>
+								<option value="Contact">Contact</option>
+								<option value="Address">Address</option>
+								<option value="JoinDate">Join date</option>
+								<option value="JoinDays">Join days</option>
+								<option value="Addition">Addition</option>
+						</select></td>
+						<td class="panel-table-data"><select name="order1"
+							id="order1">
+								<option value="asc">Asc</option>
+								<option value="desc">Desc</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><select name="sortInfo2"
+							class="sort-selector" id="sortInfo2" order="order2">
+								<option value="Id">ID</option>
+								<option value="Name">Name</option>
+								<option value="Gender">Gender</option>
+								<option value="Age">Age</option>
+								<option value="Contact">Contact</option>
+								<option value="Address">Address</option>
+								<option value="JoinDate">Join date</option>
+								<option value="JoinDays">Join days</option>
+								<option value="Addition">Addition</option>
+						</select></td>
+						<td class="panel-table-data"><select name="order2"
+							id="order2">
+								<option value="asc">Asc</option>
+								<option value="desc">Desc</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><select name="sortInfo3"
+							class="sort-selector" id="sortInfo3" order="order3">
+								<option value="Id">ID</option>
+								<option value="Name">Name</option>
+								<option value="Gender">Gender</option>
+								<option value="Age">Age</option>
+								<option value="Contact">Contact</option>
+								<option value="Address">Address</option>
+								<option value="JoinDate">Join date</option>
+								<option value="JoinDays">Join days</option>
+								<option value="Addition">Addition</option>
+						</select></td>
+						<td class="panel-table-data"><select name="order3"
+							id="order3">
+								<option value="asc">Asc</option>
+								<option value="desc">Desc</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><select name="sortInfo4"
+							class="sort-selector" id="sortInfo4" order="order4">
+								<option value="Id">ID</option>
+								<option value="Name">Name</option>
+								<option value="Gender">Gender</option>
+								<option value="Age">Age</option>
+								<option value="Contact">Contact</option>
+								<option value="Address">Address</option>
+								<option value="JoinDate">Join date</option>
+								<option value="JoinDays">Join days</option>
+								<option value="Addition">Addition</option>
+						</select></td>
+						<td class="panel-table-data"><select name="order4"
+							id="order4">
+								<option value="asc">Asc</option>
+								<option value="desc">Desc</option>
+						</select></td>
+					</tr>
+					<tr class="panel-table-row">
+						<td class="panel-table-data"><select name="sortInfo5"
+							class="sort-selector" id="sortInfo5" order="order5">
+								<option value="Id">ID</option>
+								<option value="Name">Name</option>
+								<option value="Gender">Gender</option>
+								<option value="Age">Age</option>
+								<option value="Contact">Contact</option>
+								<option value="Address">Address</option>
+								<option value="JoinDate">Join date</option>
+								<option value="JoinDays">Join days</option>
+								<option value="Addition">Addition</option>
+						</select></td>
+						<td class="panel-table-data"><select name="order5"
+							id="order5">
+								<option value="asc">Asc</option>
+								<option value="desc">Desc</option>
+						</select></td>
+					</tr>
+
+				</table>
+				<hr>
+				<div class="panel-buttons">
+					<input type="submit" id="sortSubmit" class="" value="Submit">
+					<input type="reset" id="sortReset" class="" value="Reset">
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+	<div class="panel-right-center hide" id="infoPanel">
+		<div class="panel-titlebar" onmousedown="drag(this.parentNode,event)">
+			Member information
+			<button class="panel-close" id="infoClose"
+				onclick="$(this.parentNode.parentNode).hide('normal');">X</button>
+		</div>
+		<div class="panel-content">
+			<table class="panel-table">
+				<tr class="panel-table-row">
+					<td class="panel-table-data">ID:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoId" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Name:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoName" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Gender:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoGender" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Birthday:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoBirthday" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Age:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoAge" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Contact:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoContact" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Address:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoAddress" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Join date:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoJoinDate" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Join days:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoJoinDays" readonly></td>
+				</tr>
+				<tr class="panel-table-row">
+					<td class="panel-table-data">Addition:</td>
+					<td class="panel-table-data"><input type="text"
+						placeholder="No information" id="infoAddition" readonly></td>
+				</tr>
+			</table>
+			<div class="panel-buttons">
+				<button id="deleteButton" class="">Delete</button>
+			</div>
+		</div>
+	</div>
+	<p id="msg"></p>
+</body>
+</html>

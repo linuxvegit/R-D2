@@ -1,0 +1,364 @@
+*,body {
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	/*color: rgb(74, 164, 180);*/
+	color: #007bb6;
+}
+
+.pin-right-top {
+	background-color: rgba(255, 255, 255, 0.8);
+	position: fixed;
+	width: 50px;
+	height:auto;
+	min-height: 50px;
+	right: 0;
+	top: 0px;
+	border-bottom-left-radius: 10px;
+	border: solid 2px #dedede;
+}
+
+.logout-button {
+	background-color: #c9302c;
+	height: 75%;
+	vertical-align: middle;
+	margin: 3px;
+	text-align: center;
+	color: white;
+	border-radius: 10px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 3px;
+}
+
+.logout-button:hover {
+	opacity: 0.5;
+}
+
+.pin-right-center {
+	background-color: rgba(255, 255, 255, 0.8);
+	position: fixed;
+	width: 65px;
+	height: 100px;
+	right: 0;
+	top: 45%;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border: solid 2px #dedede;
+}
+
+.pin-table {
+	height: 100%;
+	width: 100%;
+	padding: 3px 2px 3px 2px;
+}
+
+.pin-button {
+	background-color: #0072b1;
+	vertical-align: middle;
+	margin-top: auto;
+	margin-bottom: auto;
+	text-align: center;
+	color: white;
+	border-radius: 10px;
+}
+
+.pin-button:hover {
+	background-color: #9acfea;
+}
+
+.pin-text {
+	background-color: #b2dba1;
+	margin-top: auto;
+	margin-bottom: auto;
+	color: white;
+}
+
+.hide {
+	display: none;
+}
+
+.panel-right-center {
+	background-color: white;
+	position: fixed;
+	width: 270px;
+	height: 300px;
+	right: 35px;
+	top: 20%;
+	padding: 5px;
+	border: 3px outset #0072b1; /* Note 3D "outset" border effect */
+	border-radius: 10px;
+	text-align: center;
+}
+
+.panel-titlebar {
+	position: absolute; /* It's a positioned element */
+	top: 0px;
+	left: 0px;
+	height: 18px; /* Titlebar is 18px + padding and borders */
+	/*width: 250px; /!* 290 + 5px padding on left and right = 300 *!/*/
+	width: 270px;
+	background-color: #007bb6; /* Titlebar color */
+	border-bottom: groove #0072b1 2px;
+	/* Titlebar has border on bottom only */
+	padding: 3px 5px 2px 5px;
+	/* Values clockwise: top, right, bottom, left */
+	font: bold 11pt sans-serif; /* Title font */
+	color: whitesmoke;
+}
+
+.panel-titlebar span {
+	color: whitesmoke;
+}
+
+.panel-close {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	right: 2px;
+	bottom: 2px;
+	font-size: large;
+	font: bold 11pt sans-serif;
+	padding: 0px;
+	color: #007bb6;
+}
+
+.panel-content {
+	/* Specifies size, position and scrolling for window content */
+	position: absolute; /* It's a positioned element */
+	top: 25px; /* 18px title+2px border+3px+2px padding */
+	height: 272px; /* 200px total - 25px titlebar - 10px padding*/
+	width: 264px; /* 300px width - 10px of padding */
+	padding: 5px; /* Allow space on all four sides */
+	overflow: auto; /* Give us scrollbars if we need them */
+	background-color: #fff; /* White background by default */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.panel-content input[type=text],.panel-content input[type=date] {
+	color: #28a4c9;
+}
+
+.panel-table {
+	text-align: left;
+	margin-top: 20px;
+}
+
+.panel-table-data {
+	text-align: left;
+	font-size: smaller;
+}
+
+.panel-table-input-text {
+	width: 120px;
+}
+
+.panel-table-input-date {
+	width: 120px;
+}
+
+select {
+	width: 120px;
+}
+
+.panel-buttons {
+	margin-top: 5px;
+	text-align: right;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#passwordPanel {
+	height: 170px;
+	width: 220px;
+}
+
+#passwordPanel .panel-titlebar {
+	width: 220px;
+}
+
+#passwordPanel .panel-content {
+	height: 144px;
+	width: 214px;
+}
+
+#passwordPanel input[type=password] {
+	width: 200px;
+}
+
+#searchPanel select {
+	width: 115px;
+}
+
+#searchPanel input {
+	width: 110px;
+}
+
+#searchPanel {
+	height: 320px;
+}
+
+#searchPanel .panel-content {
+	height: 294px;
+}
+
+#infoPanel {
+	height: 330px;
+}
+
+#infoPanel .panel-content {
+	height: 304px;
+}
+
+#deleteButton {
+	
+}
+
+.wrapper {
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	width: 700px;
+}
+
+.top-profile {
+	width: 100%;
+	overflow: auto;
+	text-align: center;
+	float: left;
+	margin-bottom: 5px;
+}
+
+.profile-icon {
+	background-color: rgba(255, 255, 255, 0.8);
+	float: left;
+	width: 13%;
+	height: 105px;
+	border-radius: 8px;
+	border: 1px solid #dedede;
+	text-align: center;
+}
+
+.img-div {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90px;
+	height: 60px;
+}
+
+.profile-id {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.update-button {
+	border-radius: 8px;
+	background-color: #0072b1;
+	margin-top: 2px;
+	padding: 2px 5px 2px 5px;
+	color: whitesmoke;
+	border: solid 1px #dedede;
+}
+
+.update-button:hover {
+	opacity: 0.5;
+}
+
+.profile-detail {
+	background-color: rgba(255, 255, 255, 0.8);
+	float: right;
+	width: 83%;
+	/*height: 101px;*/
+	border-radius: 8px;
+	border: 1px solid #dedede;
+	padding: 2px 6px 2px 6px;
+}
+
+.profile-table {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 100%;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.profile-td {
+	text-align: left;
+	vertical-align: top;
+}
+
+.profile-content { /*color: #58B4BB;*/
+	color: #28a4c9;
+	background-color: #eeeeee;
+	padding: 1px 5px 1px 2px;
+	border: 1px solid #dedede;
+	width: 171px;
+	display: block;
+	float: left;
+}
+
+#profileAddress,#profileAddition {
+	width: 430px;
+}
+
+.profile-label {
+	min-width: 75px;
+	display: block;
+	float: left;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+.profile-content {
+	min-height: 22px;
+}
+
+.member-list {
+	background-color: rgba(255, 255, 255, 0.8);
+	float: left;
+	width: 660px;
+	min-height: 700px;
+	bottom: 0%;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 1px #dedede;
+	border-radius: 10px;
+	padding: 20px 20px 20px 20px;
+}
+
+.member-card {
+	background-color: #eeeeee;
+	float: left;
+	text-align: center;
+	border: solid #dedede 1px;
+	margin: 5px 12px 15px 13px;
+	border-radius: 5px;
+	width: 105px;
+	height: 102px;
+}
+
+.member-card:hover {
+	opacity: 0.5;
+}
+
+.member-card * {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.member-card img {
+	width: 63px;
+	height: 58px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.member-card span {
+	display: block;
+	width: 103px;
+	height: 36px;
+	overflow: auto;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery.js"></script>
+<script src="js/createclub.js"></script>
+<script>
+	$(function(){
+		$('#button').click(onCreate);
+	})
+</script>
+<style type="text/css">
+.center {
+	position: fixed;
+	width: 50%;
+	height: 50%;
+	background: gray;
+	top: 25%;
+	left: 25%;
+}
+</style>
+</head>
+<body>
+	<input id="club" type="text" />
+	<br />
+	<input id="password" type="password" />
+	<br />
+	<button id="button">Create</button>
+	<a href="#">Create a club</a>
+	<p id="msg"></p>
+</body>
+</html>

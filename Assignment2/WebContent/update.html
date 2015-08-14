@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/update.js"></script>
+
+<script>
+	$.cookie('userId', null);
+	$(function() {
+		$('#button').click(updateMember);
+	})
+</script>
+</head>
+<body>
+	<input id="name" type="text" placeholder="Your Name" />
+	<br />
+	<input id="password" type="password" placeholder="Your Password" />
+	<br />
+	<input id="gender" type="text" placeholder="Your Gender" />
+	<br />
+	<input id="birthday" type="text" placeholder="Your Birthday" />
+	<br />
+	<input id="contact" type="text" placeholder="Your Contact" />
+	<br />
+	<input id="address" type="text" placeholder="Your Address" />
+	<br />
+	<input id="addition" type="text" placeholder="Someting addition" />
+	<br />
+	<input id="readable" type="text" placeholder="Readable Permission" />
+	<br />
+
+	<button id="button">Update</button>
+	<p id="msg"></p>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Login</title>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/jquery.md5.js"></script>
+<script src="js/whenReady.js"></script>
+<script src="js/inputFilter.js"></script>
+<script src="js/util.js"></script>
+<script src="js/login.js"></script>
+<script src="js/createclub.js"></script>
+<script>
+	$.cookie('userId', null);
+	$(init);
+	//        $(function () {
+	//            $('#club').blur(function () {
+	//                var text = $(this).val();
+	//                $('#msg').html(text);
+	//                if (text === null || text.trim() === '') {
+	//                    $(this).addClass('alert-warning');
+	//                    $(this).addClass('font-warning');
+	//                    $(this).attr('placeholder', 'Please input club name');
+	//                }
+	//            });
+	//            $('#club').bind('keyup', function () {
+	//                $(this).removeClass('alert-warning');
+	//            });
+	//            $('#loginButton').click(onLogin);
+	//            $('#create').click(onCreate);
+	//        })
+</script>
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet"
+	type="text/css">
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+input.font-warning::-webkit-input-placeholder {
+	color: red;
+}
+
+input.font-warning::-moz-placeholder {
+	color: red;
+}
+</style>
+</head>
+<body class="templatemo-bg-gray">
+	<div class="container" id="logindiv">
+		<h1 class="margin-bottom-15">Log in</h1>
+
+		<form
+			class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30">
+			<div class="form-group">
+				<div class="col-xs-12">
+					<div class="control-wrapper">
+						<label for="club" class="control-label fa-label"><i
+							class="fa fa-bell fa-medium"></i></label> <input type="text"
+							class="form-control" id="club" placeholder="Club name" />
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-12">
+					<div class="control-wrapper">
+						<label for="id" class="control-label fa-label"><i
+							class="fa fa-user fa-medium"></i></label> <input type="text"
+							class="form-control" id="id" placeholder="Member ID"
+							data-allowed-chars="0123456789" />
+					</div>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-md-12">
+					<div class="control-wrapper">
+						<label for="password" class="control-label fa-label"><i
+							class="fa fa-lock fa-medium"></i></label> <input type="password"
+							class="form-control" id="password" placeholder="Password">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-12">
+					<div class="control-wrapper">
+						<input type="text" class="form-control" id="authCode"
+							placeholder="Auth code" style="width: auto; display: inline">
+						<img alt="Click refrush" src="login.do">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-12">
+					<div class="control-wrapper">
+						<input type="submit" value="Log in" class="btn btn-info"
+							id="loginButton"> <input type="reset" value="Reset"
+							class="btn" onclick="clearMsg()"> <label id="msg"
+							style="color: red"></label>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="text-center">
+		<a class="templatemo-create-new switcher" id="showCreate">Create
+			new club <i class="fa fa-arrow-circle-o-down"></i>
+		</a> <a class="templatemo-create-new switcher" id="showLogin"
+			style="display: none">Log in<i class="fa fa-arrow-circle-o-up"></i></a>
+	</div>
+	<div class="container" id="creatediv" style="display: none">
+		<h1 class="margin-bottom-15">Create club</h1>
+
+		<form
+			class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30">
+			<div class="form-group">
+				<div class="col-xs-12">
+					<div class="control-wrapper">
+						<label for="club" class="control-label fa-label"><i
+							class="fa fa-bell fa-medium"></i></label> <input type="text"
+							class="form-control" id="cclub" placeholder="Club name" />
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<div class="control-wrapper">
+						<label for="password" class="control-label fa-label"><i
+							class="fa fa-lock fa-medium"></i></label> <input type="password"
+							class="form-control" id="password1" placeholder="Password">
+					</div>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-md-12">
+					<div class="control-wrapper">
+						<label for="password" class="control-label fa-label"><i
+							class="fa fa-lock fa-medium"></i></label> <input type="password"
+							class="form-control" id="password2"
+							placeholder="Confirm password">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<div class="control-wrapper">
+						<input type="text" class="form-control" id="cAuthCode"
+							placeholder="Auth code" style="width: auto; display: inline">
+						<img alt="Click refrush" src="createClub.do">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<div class="control-wrapper">
+						<input type="submit" value="Create" class="btn btn-info"
+							id="createButton"> <input type="reset" value="Reset"
+							class="btn" onclick="clearMsg()"> <label id="cmsg"
+							style="color: red"></label>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
